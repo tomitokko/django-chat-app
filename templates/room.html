@@ -48,22 +48,17 @@ body {
 }
 
 .time-left {
-  float: left;
   color: #999;
 }
+
 </style>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 </head>
 <body>
 
-<h2>{{room}} - DjChat</h2>
+<h2>Topic： {{room}}</h2>
 
 <div id="display">
-
-<!-- <div class="container darker">
-  <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
-  <span class="time-left">20th, April 2021</span>
-</div> -->
 
 </div>
 
@@ -79,7 +74,7 @@ setInterval(function(){
             $("#display").empty();
             for (var key in response.messages)
             {
-                var temp="<div class='container darker'><b>"+response.messages[key].user+"</b><p>"+response.messages[key].value+"</p><span class='time-left'>"+response.messages[key].date+"</span></div>";
+                var temp="<div class='container darker'><b>"+response.messages[key].user+"</b><b>: </b><p style='display: inline'>"+response.messages[key].value+"</p></b><b>&nbsp &nbsp</b><span style='color: #999'>"+response.messages[key].date+"</span></div>";
                 $("#display").append(temp);
             }
         },
@@ -91,13 +86,12 @@ setInterval(function(){
 })
 </script>
 
-
 <div class="container">
     <style>
     input[type=text], select {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 0px 0px;
+    margin: 0px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
